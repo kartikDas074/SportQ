@@ -5,12 +5,12 @@ import { TypeAnimation } from "react-type-animation";
 const Banner = () => {
   return (
     <section 
-      className="relative min-h-[95vh] overflow-hidden font-sans flex items-center py-12 md:py-20 bg-no-repeat bg-cover bg-center md:bg-right"
-      style={{ backgroundImage: "url('/Assets/banner.jpg')" }} 
+     
     >
     
-
-      <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10 w-full">
+      <div  className="relative min-h-[95vh] overflow-hidden font-sans flex items-center py-12 md:py-20 bg-no-repeat bg-cover bg-center md:bg-right"
+      style={{ backgroundImage: "url('/Assets/banner.jpg')" }} >
+          <div className="container mx-auto px-4 sm:px-6 lg:px-16 relative z-10 w-full">
        
         <div className="flex justify-center lg:justify-start items-center gap-2 mb-8">
           <div className="w-6 h-6 border-2 border-emerald-500 rounded-full flex items-center justify-center animate-pulse">
@@ -70,12 +70,12 @@ const Banner = () => {
         
           <div className="lg:col-span-6 grid grid-cols-3 gap-4 md:gap-6 relative h-[420px] md:h-[500px] items-start">
           
-            <div className="relative z-10 h-[300px] md:h-[380px] rounded-3xl overflow-hidden shadow-xl border-4 border-white rotate-3 translate-y-0 hover:-translate-y-2 transition-all duration-500 group">
+            <div className="relative h-[300px] md:h-[380px] rounded-3xl overflow-hidden shadow-xl border-4 border-white rotate-3 translate-y-0 hover:-translate-y-2 transition-all duration-500 group">
               <Image
                 src="/Assets/football.jpg"
                 alt="Football Turf"
                 fill
-                className="object-cover z-10 group-hover:scale-105 transition-transform duration-500"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 to-transparent" />
               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[90%] bg-white/90 py-2 rounded-xl text-center">
@@ -119,10 +119,9 @@ const Banner = () => {
           </div>
         </div>
       </div>
-
-      <div>
-        <h1></h1>
       </div>
+     
+
     </section>
   );
 };
