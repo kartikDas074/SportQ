@@ -49,8 +49,8 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className=" sticky top-0  bg-base-100 shadow-sm">
-      <div className="navbar  justify-between mx-auto max-w-full md:max-w-[95%]">
+    <div className=" sticky top-0 z-100000 bg-base-100 shadow-sm  bg-white/50 backdrop-blur-xl">
+      <div className="navbar  justify-between mx-auto max-w-full md:max-w-[90%]">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
