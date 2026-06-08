@@ -1,10 +1,14 @@
 'use client'
-import React from 'react';
+import React, { useState } from 'react';
 import { Activity, Calendar, MapPin, Search, Star, Trophy } from 'lucide-react';
-const ArenaBanner = ({alltype,allloc,setLocation,setSportType,setSearch,data,setData}) => {
-   
+const ArenaBanner = ({alltype,allloc,data,setShowData,showData}) => {
+    const [search, setSearch] = useState('ALL');
+  const [location, setLocation] = useState('ALL');
+  const [sportType, setSportType] = useState('ALL');
    const srcme=()=>{
-                
+                console.log(search);
+                console.log(location);
+                console.log(sportType);    
    }
 
     return (
@@ -93,7 +97,7 @@ const ArenaBanner = ({alltype,allloc,setLocation,setSportType,setSearch,data,set
         </div>
       </div>
       <div className='w-full'>
-        <button onClick={srcme} className='btn btn-primary w-full'>Search</button>
+        <button onClick={srcme} className='btn btn-primary w-full rounded-[30px] h-[45px]'>Search</button>
       </div>
      
     </div>
