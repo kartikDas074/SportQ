@@ -49,7 +49,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className=" sticky top-0 z-100000 bg-base-100 shadow-sm  bg-white/50 backdrop-blur-xl">
+    <div className="relative sticky top-0 z-100000 bg-base-100 shadow-sm  bg-white/50 backdrop-blur-xl">
       <div className="navbar  justify-between mx-auto max-w-full md:max-w-[90%]">
         <div className="navbar-start">
           <div className="dropdown">
@@ -99,14 +99,14 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
           <div className="navbar-end">
-            <Link href={"/Login"}>
+            <Link href={"/login"}>
               <button className="hidden md:flex px-5 py-2 text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300">
                 Login
               </button>
             </Link>
           </div>
           <div className="navbar-end">
-            <Link href={"/Signup"}>
+            <Link href={"/signup"}>
               <button className="px-5 py-2 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
                 SignUp
               </button>

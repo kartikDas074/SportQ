@@ -2,29 +2,27 @@
 import React, { useState } from 'react';
 
 const BookTurf = ({ Data }) => {
-  // Input fields ebong slot tracking er state
+ 
   const [selectedSlots, setSelectedSlots] = useState([]);
   const [bookingDate, setBookingDate] = useState('');
   const [userName, setUserName] = useState('');
 
-  // Ajker date generate kora jate validation deya jay (min={today})
+  
   const today = new Date().toISOString().split('T')[0];
 
-  // Slot click handle korar function
+ 
   const handleSlotToggle = (slot) => {
     if (selectedSlots.includes(slot)) {
-      // Age select thakle remove korbe
       setSelectedSlots(selectedSlots.filter(s => s !== slot));
     } else {
-      // Select na thakle add korbe
       setSelectedSlots([...selectedSlots, slot]);
     }
   };
 
-  // Calculations
+
   const totalHours = selectedSlots.length;
   const pricePerHour = Data?.price || 0;
-  const discount = 0; // Future use er jonno rakha holo
+  const discount = 0;
   const totalPrice = (totalHours * pricePerHour) - discount;
 
   const handleSubmit = (e) => {
@@ -37,38 +35,26 @@ const BookTurf = ({ Data }) => {
       alert("Please select at least one time slot!");
       return;
     }
-    
-    // Final Data object backend e pathanor jonno
-    const bookingDetails = {
-      venueName: Data.name,
-      customerName: userName,
-      date: bookingDate,
-      slots: selectedSlots,
-      hours: totalHours,
-      totalBill: totalPrice
-    };
-
-    console.log("Booking Submitted:", bookingDetails);
-    alert(`⚡ Booking Request Sent for ${totalHours} Hours!`);
+  
   };
 
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-8 bg-slate-50 rounded-3xl border border-gray-100 shadow-sm mt-6">
       
-      {/* Header Section */}
+     
       <div className="mb-8 text-center md:text-left">
         <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">Book The Ground</h1>
         <p className="text-sm text-gray-500 mt-1">Secure your slot instantly. Select your preferred date, timings, and play!</p>
       </div>
 
-      {/* Main Grid Section */}
+      
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
-        {/* ================= LEFT SIDE: BOOKING FORM ================= */}
+        
         <div className="lg:col-span-7 bg-white p-6 rounded-2xl border border-gray-100 shadow-sm space-y-6">
           <form onSubmit={handleSubmit} className="space-y-5">
             
-            {/* 1. Venue & User Name Field */}
+          
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Venue Name</label>
@@ -92,12 +78,12 @@ const BookTurf = ({ Data }) => {
               </div>
             </div>
 
-            {/* 2. Date Picker (With Validity Check) */}
+            
             <div>
               <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Select Date</label>
               <input 
                 type="date" 
-                min={today} // Ajker ager kono date select kora jabe na
+                min={today} 
                 required
                 value={bookingDate}
                 onChange={(e) => setBookingDate(e.target.value)}
@@ -105,7 +91,7 @@ const BookTurf = ({ Data }) => {
               />
             </div>
 
-            {/* 3. Time Slots Grid */}
+         
             <div>
               <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Available Time Slots</label>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -126,7 +112,7 @@ const BookTurf = ({ Data }) => {
                     >
                       <span>{res.slot}</span>
                       
-                      {/* Checkmark or Badge Status */}
+                     
                       {res.isBooked ? (
                         <span className="text-[10px] font-bold bg-gray-200 text-gray-500 px-2 py-0.5 rounded">Booked</span>
                       ) : isSelected ? (
@@ -142,7 +128,7 @@ const BookTurf = ({ Data }) => {
               </div>
             </div>
 
-            {/* 4. Total Hours Counter (Auto Calculated) */}
+           
             <div>
               <label className="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Total Selected Hours</label>
               <input 
@@ -153,13 +139,13 @@ const BookTurf = ({ Data }) => {
               />
             </div>
 
-            {/* 5. Submit Button */}
+            
             <button 
               type="submit"
               disabled={totalHours === 0}
               className={`w-full text-white font-bold py-3.5 px-4 rounded-xl transition-all duration-200 text-sm shadow-md
                 ${totalHours === 0 
-                  ? 'bg-gray-300 shadow-none cursor-not-allowed' 
+                  ? 'bg-gray-300 shadow-none cursor-not-allowed ' 
                   : 'bg-blue-600 hover:bg-blue-700 shadow-blue-100 active:scale-[0.99]'}`}
             >
               Confirm & Book Now
@@ -167,25 +153,24 @@ const BookTurf = ({ Data }) => {
           </form>
         </div>
 
-        {/* ================= RIGHT SIDE: LIVE BILL SUMMARY ================= */}
+       
         <div className="lg:col-span-5 bg-white p-6 rounded-2xl border border-gray-100 shadow-xl shadow-slate-100/50 flex flex-col justify-between min-h-[350px]">
           <div>
             <h2 className="text-lg font-bold text-gray-900 pb-3 border-b border-gray-100 mb-5">Your Invoice Summary</h2>
             
             <div className="space-y-4">
-              {/* Total Hour Row */}
+            
               <div className="flex justify-between items-center text-sm">
                 <span className="text-gray-500 font-medium">Total Duration</span>
                 <span className="font-bold text-gray-800 bg-gray-100 px-3 py-1 rounded-lg">{totalHours} hr(s)</span>
               </div>
 
-              {/* Per Hour Rate Row */}
               <div className="flex justify-between items-center text-sm">
                 <span className="text-gray-500 font-medium">Rate / Hour</span>
                 <span className="font-bold text-gray-800">৳{pricePerHour}</span>
               </div>
 
-              {/* Discount Row */}
+           
               <div className="flex justify-between items-center text-sm">
                 <span className="text-gray-500 font-medium">Applied Discount</span>
                 <span className="font-bold text-emerald-600">-৳{discount}</span>
@@ -193,14 +178,14 @@ const BookTurf = ({ Data }) => {
             </div>
           </div>
 
-          {/* Bottom Total Amount Section */}
+         
           <div className="mt-8 border-t border-gray-100 pt-5">
             <div className="flex justify-between items-center mb-4">
               <span className="text-base font-bold text-gray-900">Total Payable Price:</span>
               <span className="text-2xl font-black text-blue-600">৳{totalPrice}</span>
             </div>
             
-            {/* Soft reminder note */}
+          
             <p className="text-[11px] text-gray-400 text-center bg-slate-50 py-2 rounded-lg border border-slate-100">
               *Cancelation is free up to 2 hours prior to the match.
             </p>
