@@ -9,13 +9,14 @@ import { Eye, EyeOff, Upload, User, Mail, Lock } from "lucide-react";
 import { FcGoogle } from "react-icons/fc";
 import { toast } from "react-toastify";
 import { authClient } from "@/lib/auth-client";
+import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
   const [preview, setPreview] = useState(null);
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-
+  const router=useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -111,7 +112,8 @@ export default function SignupPage() {
     // console.log(error);
 
     if(data){
-      toast.success('You Successfully Signed Up')
+      toast.success('You Successfully Signed Up');
+      router.push('/');
     }
     else{
       toast.error('Sorry There have some issue. Try latter or cheak the field')

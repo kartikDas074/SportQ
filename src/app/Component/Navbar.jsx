@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import Navlink from "./Navlink";
 import Image from "next/image";
 import Link from "next/link";
+import { authClient } from "@/lib/auth-client";
 
 const Navbar = () => {
   const links = (
@@ -48,6 +50,12 @@ const Navbar = () => {
       </li>
     </>
   );
+  const handlesingout = async () => {
+    await authClient.signOut();
+  };
+
+  const { data: session } = authClient.useSession();
+  console.log(session);
   return (
     <div className="relative sticky top-0 z-100000 bg-base-100 shadow-sm  bg-white/50 backdrop-blur-xl">
       <div className="navbar  justify-between mx-auto max-w-full md:max-w-[90%]">
@@ -98,25 +106,50 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
-          <div className="navbar-end">
-            <Link href={"/login"}>
-              <button className="hidden md:flex px-5 py-2 text-gray-700 font-semibold hover:text-indigo-600 transition-colors duration-300">
-                Login
-              </button>
-            </Link>
-          </div>
-          <div className="navbar-end">
-            <Link href={"/signup"}>
-              <button className="px-5 py-2 bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 shadow-md hover:shadow-lg transition-all duration-300">
-                SignUp
-              </button>
-            </Link>
-          </div>
-          <div className="navbar-end">
-            <Link href={"/Profile"}>
-              <button className="btn md:flex hidden">Profile </button>
-            </Link>
-          </div>
+
+          {session?.user ? (
+            <div className="navbar-end flex items-center gap-3">
+              <div className="flex items-center gap-3 px-3 py-1.5 border border-slate-200 dark:border-white/10 rounded-full bg-slate-50 dark:bg-white/5 backdrop-blur-sm shadow-sm">
+                <div className="relative h-8 w-8 overflow-hidden rounded-full border border-indigo-200 dark:border-indigo-500/30">
+                  <Image
+                    src={session.user.image || "/default-avatar.png"} // fallback image handles edge cases
+                    alt="user Pic"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              
+                <div className="hidden sm:block">
+                  <h2 className="text-sm font-semibold text-slate-700 dark:text-slate-200 tracking-wide">
+                    {session.user.name}
+                  </h2>
+                </div>
+              </div>
+
+              <div className="hidden md:block">
+                <button
+                  onClick={handlesingout}
+                  className="px-4 py-2 text-sm font-medium text-red-600 hover:text-white border border-red-200 hover:border-red-600 hover:bg-red-600 rounded-full transition-all duration-300 shadow-sm active:scale-95"
+                >
+                  Sign Out
+                </button>
+              </div>
+            </div>
+          ) : (
+            <div className="navbar-end flex items-center gap-2">
+              <Link href="/login">
+                <button className="hidden md:flex px-5 py-2 text-sm text-slate-600 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">
+                  Login
+                </button>
+              </Link>
+
+              <Link href="/signup">
+                <button className="px-5 py-2 text-sm bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 shadow-md hover:shadow-lg transition-all duration-300 transform active:scale-95">
+                  Sign Up
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </div>
