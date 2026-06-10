@@ -11,7 +11,7 @@ import { toast } from "react-toastify";
 import { authClient } from "@/lib/auth-client";
 import { useRouter } from "next/navigation";
 
-export default function SignupPage() {
+export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
   const [password, setPassword] = useState("");
   const router = useRouter();
