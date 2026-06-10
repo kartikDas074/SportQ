@@ -1,7 +1,14 @@
 'use client'
+import { BookingPost } from '@/lib/action';
+import { authClient } from '@/lib/auth-client';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const BookTurf = ({ Data }) => {
+  
+  const { data: session } = authClient.useSession();
+
  
   const [selectedSlots, setSelectedSlots] = useState([]);
   const [bookingDate, setBookingDate] = useState('');
@@ -24,9 +31,10 @@ const BookTurf = ({ Data }) => {
   const pricePerHour = Data?.price || 0;
   const discount = 0;
   const totalPrice = (totalHours * pricePerHour) - discount;
-
-  const handleSubmit = (e) => {
+  const router=useRouter();
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('button clicked');
     if (!bookingDate) {
       alert("Please select a booking date!");
       return;
@@ -34,6 +42,25 @@ const BookTurf = ({ Data }) => {
     if (selectedSlots.length === 0) {
       alert("Please select at least one time slot!");
       return;
+    }
+    
+    const TakingInfo={
+      user_id:session.user.id,
+      user_email:session.user.email,
+      user_img:session.user.image,
+      user_name:session.user.name,
+      owner_email:Data.email,
+      img:Data.img,
+      name:Data.name,
+      type:Data.type,
+      status:'pending',
+      date:bookingDate,
+      time_slots:selectedSlots
+    }
+    const result=await BookingPost(TakingInfo);
+    if(result.insertedId!=null){
+       toast.success('Your Request Is pending. Please Cheak my booking page if it is accepted by owner or not.');
+       router.push('/bookings');
     }
   
   };

@@ -31,7 +31,7 @@ const Navbar = () => {
       </li>
       <li>
         <Navlink
-          href={"/a"}
+          href={"/bookings"}
           className="text-gray-700 hover:text-indigo-600 font-medium transition-all duration-300 px-3 py-2 rounded-lg hover:bg-indigo-50"
         >
           Bookings
@@ -56,15 +56,18 @@ const Navbar = () => {
     </>
   );
 
-  const handlesingout = async () => {
-    await authClient.signOut();
-  };
-
+ 
   const [open, setOpen] = useState(0);
 
   const dropme = () => {
     setOpen(!open);
   };
+
+   const handlesingout = async () => {
+    setOpen(0);
+    await authClient.signOut();
+  };
+
 
   const droplinks = (
     <>
@@ -136,7 +139,6 @@ const Navbar = () => {
   );
 
   const { data: session } = authClient.useSession();
-  console.log(session);
   return (
     <div className="relative sticky top-0 z-100 bg-base-100 shadow-sm  bg-white/50 backdrop-blur-xl">
       <div className="navbar  justify-between mx-auto max-w-full md:max-w-[90%]">
