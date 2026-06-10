@@ -20,3 +20,8 @@ export const BookingPost=async(data)=>{
     })
     return await result.json();
 }
+
+export const userBooking=async(id)=>{
+    const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Bookings/user/${id}`);
+    return await result.json();
+}

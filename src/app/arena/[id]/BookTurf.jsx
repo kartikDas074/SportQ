@@ -55,6 +55,7 @@ const BookTurf = ({ Data }) => {
       type:Data.type,
       status:'pending',
       date:bookingDate,
+      price:totalPrice,
       time_slots:selectedSlots
     }
     const result=await BookingPost(TakingInfo);
