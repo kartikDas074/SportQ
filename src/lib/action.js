@@ -25,3 +25,11 @@ export const userBooking=async(id)=>{
     const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Bookings/user/${id}`);
     return await result.json();
 }
+
+export const bookingCancel=async(id)=>{
+    const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Bookings/${id}`,{
+        method:"DELETE"
+    });
+    return await result.json();
+
+}

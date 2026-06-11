@@ -50,6 +50,7 @@ const BookTurf = ({ Data }) => {
       user_img:session.user.image,
       user_name:session.user.name,
       owner_email:Data.email,
+      ground_id:Data._id,
       img:Data.img,
       name:Data.name,
       type:Data.type,
