@@ -44,3 +44,26 @@ export const addGround=async(data)=>{
     });
     return await result.json();
 }
+
+export const getOwnerGround=async(email)=>{
+    const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ground/owner/${email}`);
+    return await result.json();
+}
+
+export const deleteGround= async (id)=>{
+    const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ground/${id}`,{
+        method:'DELETE'
+    });
+    return await result.json();
+}
+
+export const updateGround=async(id,data)=>{
+    const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ground/${id}`,{
+        method:'PATCH',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+    });
+    return await result.json();
+}

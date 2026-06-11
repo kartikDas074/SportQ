@@ -95,7 +95,7 @@ const GroundAdd = () => {
         <div className="mb-8 flex items-center gap-3">
           <Building2 className="h-6 w-6 text-cyan-400" />
           <h2 className="text-2xl font-bold text-white">
-            Sports Ground/Court Information
+            Sports Ground/Court Information [Add Ground]
           </h2>
         </div>
 
@@ -103,7 +103,7 @@ const GroundAdd = () => {
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
             <div>
               <label className="mb-2 block text-sm font-medium text-gray-300">
-                Sports Name
+                Sports Ground Name
               </label>
 
               <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#0d1b2e] px-4">
