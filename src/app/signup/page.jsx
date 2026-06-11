@@ -100,7 +100,6 @@ export default function SignupPage() {
     }
 
     const url = await uploadToCloudinary(image);
-    console.log(url);
     const { data, error } = await authClient.signUp.email({
       name: name,// required
       email: email, // required
