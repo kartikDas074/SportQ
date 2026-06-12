@@ -12,15 +12,18 @@ const ManageGround = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-  const data = await getOwnerGround(session?.user.email);
+  const {token}=await auth.api.getToken({
+    headers: await headers()
+  });
+  const data = await getOwnerGround(session?.user.email,token);
   let capacity = 0,
     avgPrice = 0;
   for (let i = 0; i < data.length; i++) {
     capacity += parseInt(data[i].capacity);
-    avgPrice +=  parseInt(data[i])
+    avgPrice +=  parseInt(data[i].price)
   }
   if(data.length!=0)
-  avgPrice/=data.length;
+  avgPrice/=parseInt(data.length);
   return (
     <div>
       <div className="px-5 py-10  bg-[#0b1220] border border-[#1f2a3a] shadow-lg">
@@ -139,6 +142,7 @@ const ManageGround = async () => {
                   res={ress}
                   deleteGround={deleteGround}
                   updateGround={updateGround}
+                  token={token}
                 />
             
             ))}

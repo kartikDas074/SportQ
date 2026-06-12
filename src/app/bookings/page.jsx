@@ -11,8 +11,10 @@ const BookingsPage = async () => {
   const session = await auth.api.getSession({
     headers: await headers(),
   });
-
-  const data = await userBooking(session.user.id);
+  const {token}=await auth.api.getToken({
+    headers:await headers()
+  })
+  const data = await userBooking(session.user.id,token);
   const hasBookings = Array.isArray(data) && data.length > 0;
 
   return (

@@ -1,4 +1,4 @@
-import { BookingPost, Venue } from "@/lib/action";
+import { Venue } from "@/lib/action";
 import Arena from "./ArenaComponent/Arena";
 
 

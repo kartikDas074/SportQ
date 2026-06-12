@@ -1,6 +1,7 @@
 "use client";
 
 import { bookingCancel } from "@/lib/action";
+import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -31,8 +32,14 @@ const Booked = ({ bata }) => {
   };
   const router=useRouter();
   const handleCancel=async(id)=>{
-      const result= await bookingCancel(id);
+    const {data:tokenData}=await authClient.token();
+    if(!tokenData?.token){
+      toast.error('Somethng Goes wrong.plz try again later');
+      return;
+    }
+      const result= await bookingCancel(id,tokenData?.token);
       if(result.deletedCount!=0){
+         setIsModalOpen(false);
          toast.success('You Successfully Cancel The Booking');
          router.refresh();
       }else{

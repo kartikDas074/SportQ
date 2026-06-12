@@ -10,8 +10,11 @@ const PendingRequestpage = async () => {
     const session = await auth.api.getSession({
         headers: await headers()
     });
+    const {token}=await auth.api.getToken({
+        headers:await headers()
+    })
     
-    const data = await ownerPending(session.user.email) || [];
+    const data = await ownerPending(session.user.email,token) || [];
 
     return (
         <div className="w-full min-h-screen bg-[#0b1220] text-slate-100 py-10 px-4 md:px-8">

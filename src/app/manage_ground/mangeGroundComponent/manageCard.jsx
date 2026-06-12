@@ -14,7 +14,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 
-const ManageCard = ({ res, deleteGround, updateGround }) => {
+const ManageCard = ({ res, deleteGround, updateGround,token }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedGround, setSelectedGround] = useState({ id: null, name: "" });
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
@@ -37,7 +37,7 @@ const ManageCard = ({ res, deleteGround, updateGround }) => {
   };
   const router = useRouter();
   const handleConfirmDelete = async () => {
-    const result = await deleteGround(res._id);
+    const result = await deleteGround(res._id,token);
     if (result.deletedCount != null) {
       toast.success("this ground is succesfully deleted");
       setIsModalOpen(false);
@@ -107,7 +107,7 @@ const ManageCard = ({ res, deleteGround, updateGround }) => {
       email: res.email || "",
     };
 
-    const result=await updateGround(res._id,facilityData);
+    const result=await updateGround(res._id,facilityData,token);
     console.log(result);
    if(result.modifiedCount!=null){
     toast.success('You modified the ground infrormation');

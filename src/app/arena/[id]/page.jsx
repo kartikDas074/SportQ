@@ -4,10 +4,15 @@ import Link from 'next/link';
 import React from 'react';
 import { IoArrowBack } from 'react-icons/io5';
 import BookTurf from './BookTurf';
+import { auth } from '@/lib/auth';
+import { headers } from 'next/headers';
 
 const Page = async ({ params }) => {
     const { id } = await params;
-    const data = await VenueDetail(id);
+    const {token}=await auth.api.getToken({
+        headers: await headers()
+    })
+    const data = await VenueDetail(id,token);
 
     return (
         <div className="min-h-screen bg-[#0b1220] pb-16">

@@ -4,6 +4,7 @@ import { Calendar, Clock, Check, X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
+import { authClient } from "@/lib/auth-client";
 
 const Pendingcard = ({ item, ownerRespond }) => {
     console.log(item);
@@ -23,7 +24,7 @@ const Pendingcard = ({ item, ownerRespond }) => {
   const res = item;
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [actionType, setActionType] = useState("");
-
+  
   const openConfirmation = (type) => {
     setActionType(type); 
     setIsModalOpen(true);
@@ -33,7 +34,12 @@ const Pendingcard = ({ item, ownerRespond }) => {
     setIsModalOpen(false); 
     const bookingId = res._id?.$oid || res._id;
     const updateData = { status: respond };
-    const result = await ownerRespond(bookingId, updateData);
+    const {data:tokenData}= await authClient.token();
+    if(!tokenData?.token){
+       toast.error('Something Goes Wrong. Try again Later');
+        router.refresh();
+    }
+    const result = await ownerRespond(bookingId, updateData,tokenData?.token);
     if(result.modifiedCount!=null){
            toast.success(`You successfully ${respond} The request`)
            router.refresh();

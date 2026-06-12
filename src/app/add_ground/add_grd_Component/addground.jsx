@@ -81,7 +81,6 @@ const GroundAdd = () => {
       email: session?.user?.email || "",
     };
     const {data:tokenData}=await authClient.token();
-    console.log(tokenData);
     
     const res= await addGround(facilityData,tokenData?.token);
     console.log(res);
