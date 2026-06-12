@@ -10,7 +10,7 @@ const Page = async ({ params }) => {
     const data = await VenueDetail(id);
 
     return (
-        <div className="min-h-screen bg-slate-50/60 pb-16">
+        <div className="min-h-screen bg-[#0b1220] pb-16">
             
           
             <div className="relative w-full h-[50vh] min-h-[380px] md:h-[60vh] bg-slate-900 overflow-hidden">

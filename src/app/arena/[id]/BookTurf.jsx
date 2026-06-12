@@ -72,7 +72,7 @@ const BookTurf = ({ Data }) => {
       
      
       <div className="mb-8 text-center md:text-left">
-        <h1 className="text-2xl md:text-3xl font-extrabold text-gray-900 tracking-tight">Book The Ground</h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[#3b3bf3] tracking-tight">Book The Ground</h1>
         <p className="text-sm text-gray-500 mt-1">Secure your slot instantly. Select your preferred date, timings, and play!</p>
       </div>
 
