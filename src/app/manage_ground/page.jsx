@@ -20,7 +20,7 @@ const ManageGround = async () => {
     avgPrice +=  parseInt(data[i])
   }
   if(data.length!=0)
-  avgPrice/=data.length();
+  avgPrice/=data.length;
   return (
     <div>
       <div className="px-5 py-10  bg-[#0b1220] border border-[#1f2a3a] shadow-lg">
