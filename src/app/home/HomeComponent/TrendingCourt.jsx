@@ -11,6 +11,7 @@ const TrendingCourt = ({res}) => {
           src={res.img}
           alt={res.name}
           fill
+          unoptimized
           className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
         />
 
@@ -62,7 +63,7 @@ const TrendingCourt = ({res}) => {
           </div>
         </div>
 
-        <div className="mt-4 border-t border-[#1f2a3a]/50 pt-3">
+        <div className="mt-4 border-t border-[#1f2a3a]/50 pt-3 h-[60px]">
           <p className="text-xs text-gray-400/90 leading-relaxed line-clamp-2">
             {res.description}
           </p>
