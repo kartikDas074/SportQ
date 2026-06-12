@@ -9,8 +9,11 @@ import { TbBrandBooking } from "react-icons/tb";
 import { MdManageAccounts, MdPendingActions } from "react-icons/md";
 import { FcApprove } from "react-icons/fc";
 import { LogOut } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+    const router=useRouter();
+
   const links = (
     <>
       <li>
@@ -66,8 +69,9 @@ const Navbar = () => {
    const handlesingout = async () => {
     setOpen(0);
     await authClient.signOut();
+    router.refresh();
   };
-
+  
 
   const droplinks = (
     <>
@@ -76,7 +80,7 @@ const Navbar = () => {
         className="flex items-center gap-1 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 rounded-xl  hover:text-indigo-600"
       >
         <CgProfile className="h-4 w-4 text-[#FFFFFF]" />
-        <Navlink href="/profile">
+        <Navlink href="/my_profile">
           <p className="font-semibold text-[#FFFFFF]">Profile</p>
         </Navlink>
       </li>
@@ -126,7 +130,9 @@ const Navbar = () => {
       <li
         onClick={async () => {
           setOpen(!open);
+
           await authClient.signOut();
+          router.refresh();
         }}
         className="flex items-center gap-1 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 rounded-xl  hover:text-indigo-600"
       >

@@ -99,7 +99,7 @@ const Pendingcard = ({ item, ownerRespond }) => {
         </div>
       </div>
 
-      {/* Column 4: Status */}
+   
       <div className="lg:col-span-1 flex items-center lg:justify-center border-t lg:border-t-0 border-slate-800/50 pt-3 lg:pt-0">
         <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-[10px] font-black uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/20">
           <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
