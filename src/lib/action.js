@@ -34,11 +34,12 @@ export const bookingCancel=async(id)=>{
 
 }
 
-export const addGround=async(data)=>{
+export const addGround=async(data,token)=>{
        const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/ground`,{
         method:"POST",
         headers:{
-            'Content-Type':'application/json'
+            'Content-Type':'application/json',
+            'authorization':`Bearer ${token}`
         },
         body:JSON.stringify(data)
     });

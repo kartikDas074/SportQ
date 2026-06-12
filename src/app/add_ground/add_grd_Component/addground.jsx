@@ -18,8 +18,10 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 
 const GroundAdd = () => {
+
   const { data: session } = authClient.useSession();
   console.log(session);
+ 
   const [preview, setPreview] = useState(null);
   const [image, setImage] = useState(null);
   const [selectSlot, setSelectSlot] = useState([]);
@@ -78,8 +80,10 @@ const GroundAdd = () => {
       description: e.target.description.value,
       email: session?.user?.email || "",
     };
+    const {data:tokenData}=await authClient.token();
+    console.log(tokenData);
     
-    const res= await addGround(facilityData);
+    const res= await addGround(facilityData,tokenData?.token);
     console.log(res);
     if(res.insertedId!=null){
         toast.success('You add a sports Ground.');
