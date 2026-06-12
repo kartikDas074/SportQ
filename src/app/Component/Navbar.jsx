@@ -247,14 +247,14 @@ const Navbar = () => {
               <div className="hidden md:block">
                 <button
                   onClick={handlesingout}
-                  className="px-4 py-2 text-sm font-medium text-red-600 hover:text-white border border-red-200 hover:border-red-600 hover:bg-red-600 rounded-full transition-all duration-300 shadow-sm active:scale-95"
+                  className="px-4 py-2 text-sm font-medium text-red-600 hover:text-white border border-red-200 hover:border-red-600 hover:bg-red-600  transition-all duration-300 shadow-sm active:scale-95"
                 >
-                  Sign Out
+                  SignOut
                 </button>
               </div>
             </div>
           ) : (
-            <div className="navbar-end flex items-center gap-2">
+            <div className=" flex items-center gap-2">
               <Link href="/login">
                 <button className="hidden md:flex px-5 py-2 text-sm text-slate-600 dark:text-slate-300 font-semibold hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors duration-300">
                   Login
@@ -262,8 +262,8 @@ const Navbar = () => {
               </Link>
 
               <Link href="/signup">
-                <button className="px-5 py-2 text-sm bg-indigo-600 text-white font-semibold rounded-full hover:bg-indigo-700 shadow-md hover:shadow-lg transition-all duration-300 transform active:scale-95">
-                  Sign Up
+                <button className="btn btn-primary">
+                  SignUp
                 </button>
               </Link>
             </div>

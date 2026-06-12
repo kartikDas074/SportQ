@@ -19,6 +19,8 @@ export const config = {
     "/arena/:path",
     "/manage_ground",
     "/add_ground",
-    "/bookings"
+    "/bookings",
+    '/pending_request',
+    '/my_profile'
   ],
 }

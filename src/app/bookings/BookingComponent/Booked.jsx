@@ -137,7 +137,7 @@ const Booked = ({ bata }) => {
                           {res?.time_slots?.map((slot, index) => (
                             <span
                               key={index}
-                              className="px-3 py-1 text-xs font-medium rounded-full bg-white border border-gray-300 whitespace-nowrap"
+                              className="px-3 py-1 text-[#e27676] text-xs font-medium rounded-full bg-white border border-gray-300 whitespace-nowrap"
                             >
                               {slot}
                             </span>
