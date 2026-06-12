@@ -4,6 +4,11 @@ import TrendingCourt from "./HomeComponent/TrendingCourt";
 import { ArrowRight, ArrowUpRight, Calendar, Flame, Sparkles } from "lucide-react";
 import Link from "next/link";
 import SliderGame from "./HomeComponent/sliderGame";
+import HowItWorks from "./HomeComponent/HowItWorks";
+import WhyUs from "./HomeComponent/WhyUs";
+import SpecialOffers from "./HomeComponent/SpecialOffers";
+import VenueOwnerCTA from "./HomeComponent/VenueOwnerCTA";
+import FAQ from "./HomeComponent/FAQ";
 
 const Homepage = async () => {
   const data = await Venue();
@@ -67,7 +72,7 @@ const Homepage = async () => {
       <section className="w-full bg-[#0b1220] text-slate-100 py-16 md:py-24 border-t border-slate-800/40">
       <div className="w-[90%] md:w-[85%] max-w-7xl mx-auto space-y-12">
         
-        {/* Header Section */}
+       
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-800/60 pb-6">
           <div className="space-y-2 text-center md:text-left">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold uppercase tracking-wider">
@@ -87,14 +92,14 @@ const Homepage = async () => {
           </div>
         </div>
 
-        {/* Cards Grid Container */}
+       
         {newadd && newadd.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {newadd.map((ress) => (
               <div 
                 key={ress._id} 
               >
-                {/* Top-Right Tag Highlight */}
+               
                 <div className="absolute top-3 right-3 z-20 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <div className="flex items-center gap-1 bg-emerald-500 text-slate-950 px-2.5 py-1 rounded-lg text-xs font-black shadow-lg">
                     NEW <ArrowUpRight size={12} strokeWidth={3} />
@@ -106,7 +111,7 @@ const Homepage = async () => {
             ))}
           </div>
         ) : (
-          /* Empty State */
+        
           <div className="text-center py-16 bg-slate-900/20 rounded-2xl border border-dashed border-slate-800">
             <Calendar size={40} className="mx-auto text-slate-600 mb-3" />
             <p className="text-slate-500 font-medium">No new grounds added recently.</p>
@@ -115,6 +120,11 @@ const Homepage = async () => {
 
       </div>
     </section>
+    <HowItWorks></HowItWorks>
+    <WhyUs></WhyUs>
+    <SpecialOffers></SpecialOffers>
+    <VenueOwnerCTA></VenueOwnerCTA>
+    <FAQ></FAQ>
     </div>
   );
 };

@@ -42,7 +42,7 @@ const SliderGame = () => {
   return (
     <section className="py-16 bg-slate-950 text-white">
       <div className="w-[90%] max-w-7xl mx-auto">
-        {/* Header */}
+     
         <div className="flex items-center justify-between mb-8">
           <div>
             <p className="text-emerald-400 font-semibold">Popular Sports</p>

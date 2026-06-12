@@ -12,12 +12,12 @@ const ArenaBanner = ({alltype,allloc,data,setShowData,showData}) => {
    }
 
     return (
-       <div className="relative w-full min-h-[650px] bg-white flex flex-col justify-center items-center px-4 py-20 overflow-hidden">
+       <div className="relative w-full min-h-[650px] bg-slate-950 flex flex-col justify-center items-center px-4 py-20 overflow-hidden">
     
   <div className="relative z-10 max-w-6xl w-full text-center space-y-10">
 
     <div className="space-y-5 max-w-4xl mx-auto">
-      <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-slate-900">
+      <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-tight text-[#FFFFFF]">
         Find Your Perfect Arena.
         <br />
         <span className="bg-gradient-to-r from-emerald-600 to-blue-600 bg-clip-text text-transparent">

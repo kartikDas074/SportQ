@@ -1,5 +1,6 @@
 import { Clock, DollarSign, MapPin, Users } from 'lucide-react';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { SiBookingdotcom } from 'react-icons/si';
 
@@ -70,7 +71,8 @@ const TrendingCourt = ({res}) => {
         </div>
       </div>
 
-      <div className="px-5 py-4 bg-[#080d18]/60 border-t border-[#1f2a3a] grid grid-col-1 items-center gap-3">
+       <Link href={`/arena/${res._id}`}>
+          <div className="px-5 py-4 bg-[#080d18]/60 border-t border-[#1f2a3a] grid grid-col-1 items-center gap-3">
        
         <button
          
@@ -82,7 +84,8 @@ const TrendingCourt = ({res}) => {
           </span>
         </button>
       </div>
-
+      </Link>
+     
     
      
     </div>
