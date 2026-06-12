@@ -67,3 +67,20 @@ export const updateGround=async(id,data)=>{
     });
     return await result.json();
 }
+
+export const ownerPending=async(email)=>{
+       
+    const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Bookings/owner/${email}`);
+    return await result.json();
+}
+
+export const ownerRespond=async(id,data)=>{
+    const result=await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Bookings/owner/${id}`,{
+        method:'PATCH',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body:JSON.stringify(data)
+    });
+    return result.json();
+}

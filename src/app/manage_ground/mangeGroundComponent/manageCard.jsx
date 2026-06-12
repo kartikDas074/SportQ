@@ -126,6 +126,7 @@ const ManageCard = ({ res, deleteGround, updateGround }) => {
           src={res.img}
           alt={res.name}
           fill
+          unoptimized
           className="object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
         />
 

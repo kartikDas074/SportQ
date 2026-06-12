@@ -116,7 +116,7 @@ const Navbar = () => {
         className="flex items-center gap-1 px-3 py-2.5 text-sm font-medium text-slate-700 dark:text-slate-300 rounded-xl  hover:text-indigo-600"
       >
         <MdPendingActions className="h-4 w-4 text-[#FFFFFF]" />
-        <Navlink href="/pending-requests">
+        <Navlink href="/pending_request">
           <span className="font-semibold text-[#FFFFFF]">Pending Request</span>
         </Navlink>
       </li>
