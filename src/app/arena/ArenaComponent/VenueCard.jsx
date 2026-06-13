@@ -7,7 +7,7 @@ import { SiBookingdotcom } from 'react-icons/si';
 const  VenueCard = ({Data}) => {
   const res=Data;
     return (
-        <div className="group relative rounded-2xl border border-[#1f2a3a] bg-slate-950 overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(14,165,233,0.1)] hover:border-[#0ea5e9]/40 transition-all duration-300 flex flex-col justify-between max-w-sm">
+        <div className="group relative rounded-2xl border border-[#1f2a3a] bg-slate-950 overflow-hidden shadow-lg hover:shadow-[0_0_30px_rgba(14,165,233,0.1)] hover:border-[#0ea5e9]/40 transition-all duration-300 flex flex-col justify-between w-full">
       <div className="relative h-48 w-full overflow-hidden bg-slate-950">
         <Image
           src={res.img}

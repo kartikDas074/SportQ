@@ -247,7 +247,7 @@ const Navbar = () => {
               <div className="hidden md:block">
                 <button
                   onClick={handlesingout}
-                  className="px-4 py-2 text-sm font-medium text-red-600 hover:text-white border border-red-200 hover:border-red-600 hover:bg-red-600  transition-all duration-300 shadow-sm active:scale-95"
+                  className="px-4 py-2 text-sm font-medium text-red-600 hover:text-white border border-red-200 hover:border-red-600 hover:bg-red-600  transition-all duration-300 shadow-sm active:scale-95 rounded-[8px]"
                 >
                   SignOut
                 </button>
@@ -262,7 +262,7 @@ const Navbar = () => {
               </Link>
 
               <Link href="/signup">
-                <button className="btn btn-primary">
+                <button className="btn btn-primary rounded-[8px]">
                   SignUp
                 </button>
               </Link>

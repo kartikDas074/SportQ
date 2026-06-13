@@ -24,7 +24,7 @@ const Arena = ({ data }) => {
 
       <div className="w-full mx-auto bg-[#0b1220] px-4 sm:px-6 lg:px-8 py-10">
         {showData.length > 0 ? (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center w-full">
             {showData.map((res) => (
               <VenueCard key={res._id || res.id} Data={res} />
             ))}
@@ -45,7 +45,7 @@ const Arena = ({ data }) => {
               criteria. Try selecting a different location or type!
             </p>
 
-            {/* Reset Button (Optional but UX er jonno bhalo) */}
+            
             <button
               onClick={() => setShowData([...data])}
               className="mt-6 text-sm font-semibold text-blue-600 hover:text-blue-700 bg-blue-50 hover:bg-blue-100/80 px-4 py-2 rounded-xl transition-colors duration-200"

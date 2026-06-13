@@ -6,11 +6,30 @@ const ArenaBanner = ({ alltype, allloc, data, setShowData, showData }) => {
   const [location, setLocation] = useState("ALL");
   const [sportType, setSportType] = useState("ALL");
   const srcme = () => {
-    console.log(search);
-    console.log(location);
-    console.log(sportType);
-  };
+    let filtered = [...data];
 
+    
+    if (search && search !== "ALL") {
+      filtered = filtered.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase()),
+      );
+    }
+
+  
+    if (location !== "ALL") {
+      filtered = filtered.filter(
+        (item) => item.location.toLowerCase() === location.toLowerCase(),
+      );
+    }
+
+    if (sportType !== "ALL") {
+      filtered = filtered.filter(
+        (item) => item.type.toLowerCase() === sportType.toLowerCase(),
+      );
+    }
+
+    setShowData(filtered);
+  };
   return (
     <div className="relative w-full min-h-[650px] bg-slate-950 flex flex-col justify-center items-center px-4 py-20 overflow-hidden">
       <div className="relative z-10 max-w-6xl w-full text-center space-y-10">

@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 import { TypeAnimation } from "react-type-animation";
 
 const Banner = () => {
@@ -56,12 +57,14 @@ const Banner = () => {
                   />
                 </p>
               </div>
-
+              <Link href={'/arena'}>
               <div className="pt-4">
                 <button className="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-sm tracking-wide rounded-full shadow-lg shadow-emerald-500/20 transition-all duration-300 transform hover:translate-y-[-2px]">
                   Explore Courts
                 </button>
               </div>
+              </Link>
+              
             </div>
 
             <div className="lg:col-span-6 grid grid-cols-3 gap-4 md:gap-6 relative h-[420px] md:h-[500px] items-start">
