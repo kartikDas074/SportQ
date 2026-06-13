@@ -113,13 +113,20 @@ export default function SignupPage() {
       toast.success("You Successfully Signed Up");
 
       await authClient.getSession();
-
+       
       router.refresh();
       window.location.href = "/";
     } else {
       toast.error("Sorry There have some issue. Try latter or cheak the field");
     }
   };
+
+   const handleGoogleSignIn = async () => {
+      const data = await authClient.signIn.social({
+       provider: "google",
+      });
+    };
+
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-slate-950 flex items-center justify-center px-4 py-10">
@@ -304,7 +311,9 @@ export default function SignupPage() {
 
         <div className="divider text-slate-400">OR</div>
 
-        <button className="btn w-full bg-white text-black hover:bg-gray-100 border-0">
+        <button
+        onClick={handleGoogleSignIn}
+        className="btn w-full bg-white text-black hover:bg-gray-100 border-0">
           <FcGoogle size={22} />
           Continue with Google
         </button>

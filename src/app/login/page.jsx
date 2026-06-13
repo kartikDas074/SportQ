@@ -30,6 +30,12 @@ export default function Login() {
     }
   };
 
+  const handleGoogleSignIn = async () => {
+      const data = await authClient.signIn.social({
+       provider: "google",
+      });
+    };
+
   const handleChange = (e) => {
     setPassword(e.target.value);
   };
@@ -110,7 +116,9 @@ export default function Login() {
 
         <div className="divider text-slate-400">OR</div>
 
-        <button className="btn w-full bg-white text-black hover:bg-gray-100 border-0">
+        <button
+         onClick={handleGoogleSignIn}
+        className="btn w-full bg-white text-black hover:bg-gray-100 border-0">
           <FcGoogle size={22} />
           Continue with Google
         </button>
