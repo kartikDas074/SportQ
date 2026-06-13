@@ -16,7 +16,7 @@ export default function SignupPage() {
 
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const router=useRouter();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -101,23 +101,24 @@ export default function SignupPage() {
 
     const url = await uploadToCloudinary(image);
     const { data, error } = await authClient.signUp.email({
-      name: name,// required
+      name: name, // required
       email: email, // required
       password: password, // required
       image: url,
-      
     });
     // console.log(data);
     // console.log(error);
 
-    if(data){
-      toast.success('You Successfully Signed Up');
-      router.push('/');
+    if (data) {
+      toast.success("You Successfully Signed Up");
+
+      await authClient.getSession();
+
+      router.refresh();
+      window.location.href = "/";
+    } else {
+      toast.error("Sorry There have some issue. Try latter or cheak the field");
     }
-    else{
-      toast.error('Sorry There have some issue. Try latter or cheak the field')
-    }
-    
   };
 
   return (
@@ -242,12 +243,10 @@ export default function SignupPage() {
               </button>
             </label>
           </div>
-            <div className="space-y-1 text-sm pl-1">
+          <div className="space-y-1 text-sm pl-1">
             <p
               className={`${
-                validations.length
-                  ? "text-green-400"
-                  : "text-gray-400"
+                validations.length ? "text-green-400" : "text-gray-400"
               }`}
             >
               ✓ Minimum 8 characters
@@ -255,19 +254,15 @@ export default function SignupPage() {
 
             <p
               className={`${
-                validations.uppercase
-                  ? "text-green-400"
-                  : "text-gray-400"
+                validations.uppercase ? "text-green-400" : "text-gray-400"
               }`}
-               >
+            >
               ✓ One uppercase letter
             </p>
 
             <p
               className={`${
-                validations.lowercase
-                  ? "text-green-400"
-                  : "text-gray-400"
+                validations.lowercase ? "text-green-400" : "text-gray-400"
               }`}
             >
               ✓ One lowercase letter
