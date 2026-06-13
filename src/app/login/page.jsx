@@ -24,7 +24,8 @@ export default function Login() {
       password: password,
     });
     if (data) {
-      router.push("/");
+     router.refresh();
+      window.location.href = "/";
     } else {
       toast.error("Something Goes wrong. Cheank your email and password.");
     }
