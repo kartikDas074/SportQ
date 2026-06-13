@@ -1,36 +1,192 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🏟️ SportQ - Sports Facility Booking Management System
 
-## Getting Started
+## 📌 Project Overview
 
-First, run the development server:
+**SportQ** is a full-stack MERN-based sports facility booking platform that allows users to explore, book, and manage various sports facilities such as football turfs, badminton courts, tennis courts, and swimming lanes.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The platform is designed to simulate a real-world sports reservation system where facility owners can list their venues and users can easily book available time slots.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🚀 Live Demo
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+👉 Live URL: https://sport-q-green.vercel.app
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Purpose
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The purpose of this project is to build a scalable and production-like sports booking system using modern web technologies including:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* MERN Stack (MongoDB, Express.js, React, Node.js)
+* Authentication using JWT with HTTP-only cookies
+* Real-world booking and management system
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## ⚙️ Tech Stack
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Frontend:
+
+* React.js
+* Next.js 
+* Tailwind CSS / CSS Modules
+* React Toastify
+
+### Backend:
+
+* Node.js
+* Express.js
+* MongoDB 
+* JWT Authentication
+* CORS
+
+---
+
+## 🔐 Authentication Features
+
+* User Registration (Name, Email, Photo, Password)
+* Google Login (OAuth)
+* HTTP-only Cookie-based authentication
+* Protected Routes (Middleware)
+* Persistent login on page reload
+
+---
+
+## 🏟️ Core Features
+
+### 🏠 Home Page
+
+* Hero Section with CTA
+* Featured Facilities (Dynamic, min 6 cards)
+* Book Now Button (Protected)
+
+---
+
+### 🏟️ Facilities System
+
+* Browse All Facilities (Public)
+* Facility Details Page
+* Add Facility (Private)
+* Update Facility (Owner Only)
+* Delete Facility (Owner Only)
+
+---
+
+### 📅 Booking System
+
+* Book Facility by Date & Time Slot
+* Calculate Total Price
+* Store booking in database
+* Cancel booking option
+* Booking status tracking (pending/cancelled)
+
+---
+
+### 👤 User Dashboard
+
+* My Bookings (Private)
+* Add Facility
+* Manage My Facilities
+
+---
+
+## 🔎 Search & Filter
+
+* Search facilities by name 
+* Filter by sport type 
+* MongoDB query-based filtering
+
+---
+
+## 📦 Database Structure
+
+### Facilities Collection
+
+* name
+* facility_type
+* location
+* price_per_hour
+* capacity
+* available_slots
+* description
+* owner_email
+* booking_count
+
+---
+
+### Bookings Collection
+
+* facility_id
+* user_email
+* booking_date
+* time_slot
+* hours
+* total_price
+* status (pending/cancelled)
+
+---
+
+## 📱 UI/UX Requirements
+
+* Responsive (Mobile, Tablet, Desktop)
+* Consistent design system
+* Equal card sizes and spacing
+* Clean recruiter-friendly UI
+* Reusable button styles
+* Proper alignment and spacing
+
+---
+
+## ⏳ Loading & Error Handling
+
+* Custom Loading Spinner/Page implemented
+* Custom 404 Not Found Page
+* Error handling with toast messages (no default alerts)
+
+---
+
+## 🔒 Security Features
+
+* JWT stored in HTTP-only cookies
+* Protected API routes
+* Middleware-based route verification
+* Secure environment variables (.env)
+
+---
+
+## 🚫 Not Implemented
+
+* Email verification (intentionally skipped)
+* Forgot password (not implemented)
+
+---
+
+## 🧠 Key Learnings
+
+* Full-stack MERN architecture
+* Authentication flow with JWT cookies
+* Real-world booking system design
+* API design and middleware protection
+
+---
+
+
+## 📤 Deployment
+
+* Frontend: Vercel 
+* Backend: Vercel
+* Database: MongoDB Atlas
+
+---
+
+## 👨‍💻 Developer
+
+**Kartik Das**
+Full Stack Developer (MERN)
+
+---
+
+## 📜 License
+
+This project is built for educational and assignment purposes.
