@@ -9,7 +9,7 @@ const ArenaBanner = ({ alltype, allloc, data, setShowData, showData }) => {
     let filtered = [...data];
 
     
-    if (search && search !== "ALL") {
+    if (search && search !== "ALL"&&search!="") {
       filtered = filtered.filter((item) =>
         item.name.toLowerCase().includes(search.toLowerCase()),
       );
@@ -79,7 +79,7 @@ const ArenaBanner = ({ alltype, allloc, data, setShowData, showData }) => {
                 onChange={(e) => setLocation(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 text-sm text-slate-800 focus:outline-none focus:border-emerald-500 appearance-none"
               >
-                <option value="All">ALL</option>
+                <option  value="ALL">ALL</option>
                 {allloc.map((res, index) => (
                   <option key={index} value={res}>
                     {res}
@@ -101,7 +101,7 @@ const ArenaBanner = ({ alltype, allloc, data, setShowData, showData }) => {
                 onChange={(e) => setSportType(e.target.value)}
                 className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 pl-11 pr-4 text-sm text-slate-800 focus:outline-none focus:border-emerald-500 appearance-none"
               >
-                <option value="All">ALL</option>
+                <option value="ALL">ALL</option>
                 {alltype.map((res, index) => (
                   <option key={index} value={res}>
                     {res}
