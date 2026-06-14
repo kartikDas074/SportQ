@@ -260,9 +260,9 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
             onClick={() => setIsEditModalOpen(false)}
           />
 
-          {/* মডাল বক্স (স্ক্রোলেবল বডি সহ) */}
+          
           <div className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto transform rounded-2xl border border-slate-800 bg-[#0b1220] p-6 md:p-8 text-left shadow-[0_0_50px_rgba(14,165,233,0.15)] transition-all animate-in fade-in zoom-in-95 duration-200 custom-scrollbar">
-            {/* ক্লোজ বাটন */}
+          
             <button
               onClick={() => setIsEditModalOpen(false)}
               className="absolute top-4 right-4 p-2 rounded-xl border border-slate-800 bg-[#0d1b2e] text-gray-400 hover:text-white hover:bg-slate-800 transition"
@@ -270,7 +270,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
               <X className="h-5 w-5" />
             </button>
 
-            {/* মডাল হেডার মেসেজ */}
+           
             <div className="mb-6 border-b border-slate-800 pb-4">
               <h2 className="text-xl md:text-2xl font-bold text-white tracking-wide">
                 Update Your Ground Facility
@@ -282,10 +282,10 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
               </p>
             </div>
 
-            {/* মডাল ফর্ম */}
+            
             <form onSubmit={handleUpdateSubmit} className="space-y-6">
               <div className="grid grid-cols-1 gap-5 lg:grid-cols-3">
-                {/* Ground Name */}
+              
                 <div>
                   <label className="mb-2 block text-sm font-medium text-gray-300">
                     Sports Ground Name
@@ -295,7 +295,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                     <input
                       type="text"
                       name="name"
-                      defaultValue={res.name} // 🎯 অটো-ফিল ভ্যালু
+                      defaultValue={res.name} 
                       placeholder="Enter sports name"
                       required
                       className="h-12 w-full bg-transparent text-white outline-none text-sm"
@@ -303,7 +303,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                   </div>
                 </div>
 
-                {/* Sports Type */}
+               
                 <div>
                   <label className="mb-2 block text-sm font-medium text-gray-300">
                     Sports Type
@@ -313,7 +313,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                     <input
                       type="text"
                       name="type"
-                      defaultValue={res.type} // 🎯 অটো-ফিল ভ্যালু
+                      defaultValue={res.type} 
                       placeholder="Enter sports type"
                       required
                       className="h-12 w-full bg-transparent text-white outline-none text-sm"
@@ -321,7 +321,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                   </div>
                 </div>
 
-                {/* Image Upload Box */}
+              
                 <div className="lg:row-span-2">
                   <label className="mb-2 block text-sm font-medium text-gray-300">
                     Update Image
@@ -352,7 +352,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                   </label>
                 </div>
 
-                {/* Location */}
+               
                 <div className="lg:col-span-2">
                   <label className="mb-2 block text-sm font-medium text-gray-300">
                     Location
@@ -362,7 +362,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                     <input
                       type="text"
                       name="location"
-                      defaultValue={res.location} // 🎯 অটো-ফিল ভ্যালু
+                      defaultValue={res.location} 
                       placeholder="Enter location"
                       required
                       className="h-12 w-full bg-transparent text-white outline-none text-sm"
@@ -371,18 +371,18 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                 </div>
               </div>
 
-              {/* Price & Capacity Row */}
+            
               <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                 <div>
                   <label className="mb-2 block text-sm font-medium text-gray-300">
-                    Price Per Hour (৳)
+                    Price Per Hour (Tk)
                   </label>
                   <div className="flex items-center gap-2 rounded-xl border border-slate-700 bg-[#0d1b2e] px-4">
                     <DollarSign className="h-4 w-4 text-cyan-400" />
                     <input
                       type="number"
                       name="price"
-                      defaultValue={res.price} // 🎯 অটো-ফিল ভ্যালু
+                      defaultValue={res.price} 
                       placeholder="Enter price"
                       required
                       className="h-12 w-full bg-transparent text-white outline-none text-sm"
@@ -399,7 +399,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                     <input
                       type="number"
                       name="capacity"
-                      defaultValue={res.capacity} // 🎯 অটো-ফিল ভ্যালু
+                      defaultValue={res.capacity} 
                       placeholder="Enter capacity"
                       required
                       className="h-12 w-full bg-transparent text-white outline-none text-sm"
@@ -408,7 +408,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                 </div>
               </div>
 
-              {/* Time Slots Option */}
+              
               <div>
                 <label className="mb-3 flex items-center gap-2 text-sm font-medium text-gray-300">
                   <Clock3 className="h-4 w-4 text-cyan-400" />
@@ -429,7 +429,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                     "16:00-17:00",
                     "17:00-18:00",
                   ].map((slot) => {
-                    // 🎯 এখানে চেক করছে ডাটাবেজের কোন স্লটগুলো অলরেডি সিলেক্টেড আছে
+                  
                     const isSelected = selectSlot.some(
                       (item) => item.slot === slot,
                     );
@@ -457,7 +457,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                 </div>
               </div>
 
-              {/* Description Textarea */}
+             
               <div>
                 <label className="mb-2 block text-sm font-medium text-gray-300">
                   Description
@@ -466,7 +466,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                   <textarea
                     rows={4}
                     name="description"
-                    defaultValue={res.description} // 🎯 অটো-ফিল ভ্যালু
+                    defaultValue={res.description} 
                     placeholder="Describe your facility..."
                     required
                     className="w-full resize-none bg-transparent text-white outline-none text-sm leading-relaxed"
@@ -474,7 +474,7 @@ const ManageCard = ({ res, deleteGround, updateGround,token }) => {
                 </div>
               </div>
 
-              {/* Form Action Buttons */}
+            
               <div className="flex items-center justify-end gap-3 pt-2 border-t border-slate-800">
                 <button
                   type="button"

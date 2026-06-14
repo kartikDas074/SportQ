@@ -87,10 +87,10 @@ const Footer = () => {
             <h4 className="text-xs font-bold text-white uppercase tracking-wider border-l-2 border-emerald-500 pl-2">Quick Links</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-emerald-400 transition-colors">Home</Link></li>
-              <li><Link href="/facilities" className="hover:text-emerald-400 transition-colors">Explore Venues</Link></li>
-              <li><Link href="/my-bookings" className="hover:text-emerald-400 transition-colors">My Booking</Link></li>
-              <li><Link href="/add-facility" className="hover:text-emerald-400 transition-colors">Add Ground</Link></li>
-              <li><Link href="/manage-facilities" className="hover:text-emerald-400 transition-colors">Manage Ground</Link></li>
+              <li><Link href="/arena" className="hover:text-emerald-400 transition-colors">Explore Venues</Link></li>
+              <li><Link href="/bookings" className="hover:text-emerald-400 transition-colors">My Booking</Link></li>
+              <li><Link href="/add_ground" className="hover:text-emerald-400 transition-colors">Add Ground</Link></li>
+              <li><Link href="/manage_ground" className="hover:text-emerald-400 transition-colors">Manage Ground</Link></li>
             </ul>
           </div>
 
